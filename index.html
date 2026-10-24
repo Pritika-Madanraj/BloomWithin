@@ -1,0 +1,612 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BloomWithin | Women's Health & Wellbeing</title>
+  <style>
+    :root {
+      --sage: #829b83;
+      --sage-dark: #46664e;
+      --lavender: #e9e3f5;
+      --cream: #fffaf1;
+      --blush: #f8e4e3;
+      --text: #303d35;
+      --muted: #68756c;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--white);
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #e7e8df;
+    }
+
+    .brand {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--sage-dark);
+    }
+
+    .brand span {
+      color: #9a83bd;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: var(--sage-dark);
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      border-radius: 24px;
+      padding: 11px 18px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .language-button {
+      background: var(--lavender);
+      color: #51416e;
+    }
+
+    .hero {
+      padding: 76px 7%;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 38px;
+      align-items: center;
+      background: linear-gradient(120deg, #f5f1fa, #fffaf1 65%, #f2f6ed);
+    }
+
+    .eyebrow {
+      color: var(--sage-dark);
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 5vw, 4.2rem);
+      line-height: 1.12;
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      color: var(--sage-dark);
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 570px;
+      margin-bottom: 25px;
+    }
+
+    .primary-button {
+      background: var(--sage-dark);
+      color: white;
+    }
+
+    .hero-art {
+      background: var(--lavender);
+      border-radius: 48% 48% 28px 28px;
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .flower {
+      font-size: 6rem;
+      line-height: 1.3;
+    }
+
+    .hero-art p {
+      margin: 10px auto 0;
+      color: #51416e;
+      font-weight: 700;
+    }
+
+    section {
+      padding: 58px 7%;
+      scroll-margin-top: 20px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .section-heading h2 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .health-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 20px;
+    }
+
+    .health-card {
+      background: white;
+      padding: 25px;
+      border-radius: 18px;
+      border: 1px solid #e9e8df;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .health-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px #30403012;
+    }
+
+    .health-card .symbol {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .health-card h3 {
+      margin-bottom: 9px;
+      color: var(--sage-dark);
+    }
+
+    .health-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-bottom: 17px;
+    }
+
+    .text-button {
+      background: var(--lavender);
+      color: #51416e;
+      padding: 9px 14px;
+    }
+
+    .journal {
+      background: #f0f4ec;
+    }
+
+    .journal-box {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 28px;
+      border-radius: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin: 16px 0 7px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d9ded5;
+      border-radius: 10px;
+      background: white;
+      font: inherit;
+      color: var(--text);
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .journal-box .primary-button {
+      margin-top: 18px;
+    }
+
+    #journal-message {
+      margin-top: 14px;
+      color: var(--sage-dark);
+      font-weight: 700;
+    }
+
+    .wellbeing {
+      background: var(--blush);
+      text-align: center;
+    }
+
+    .wellbeing p {
+      max-width: 650px;
+      margin: 12px auto 22px;
+      color: #635452;
+    }
+
+    .notice {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 18px;
+      border-radius: 12px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer {
+      padding: 28px 7%;
+      text-align: center;
+      background: #344a3a;
+      color: white;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      margin: 5px;
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 48px;
+      }
+
+      header {
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      .hero-art {
+        min-height: 200px;
+      }
+
+      .flower {
+        font-size: 4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="brand">Bloom<span>Within</span></div>
+
+    <nav aria-label="Main navigation">
+      <a href="#home" data-en="Home" data-ta="முகப்பு">Home</a>
+      <a href="#health" data-en="Explore Health" data-ta="உடல்நலம்">Explore Health</a>
+      <a href="#journal" data-en="Symptom Journal" data-ta="அறிகுறிப் பதிவு">Symptom Journal</a>
+      <a href="#wellbeing" data-en="Wellbeing" data-ta="மனநலம்">Wellbeing</a>
+      <button class="language-button" id="language-toggle" type="button">
+        தமிழ்
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <div class="eyebrow"
+          data-en="Your health, your journey"
+          data-ta="உங்கள் உடல்நலம், உங்கள் பயணம்">
+          Your health, your journey
+        </div>
+
+        <h1 data-en-html="Understand your body.<br><span>Nurture your wellbeing.</span>"
+          data-ta-html="உங்கள் உடலைப் புரிந்துகொள்ளுங்கள்.<br><span>நலனைப் பேணுங்கள்.</span>">
+          Understand your body.<br>
+          <span>Nurture your wellbeing.</span>
+        </h1>
+
+        <p data-en="A supportive space to explore women's health, understand symptoms, learn about common conditions, and care for emotional wellbeing."
+          data-ta="பெண்களின் உடல்நலத்தைப் பற்றி அறியவும், அறிகுறிகளைப் புரிந்துகொள்ளவும், பொதுவான உடல்நலப் பிரச்சினைகளைக் கற்றுக்கொள்ளவும், மனநலத்தைப் பேணவும் உதவும் இடம்.">
+          A supportive space to explore women's health, understand symptoms,
+          learn about common conditions, and care for emotional wellbeing.
+        </p>
+
+        <button class="primary-button" type="button"
+          onclick="document.getElementById('health').scrollIntoView({behavior:'smooth'})"
+          data-en="Explore health topics"
+          data-ta="உடல்நலத் தலைப்புகளைப் பாருங்கள்">
+          Explore health topics
+        </button>
+      </div>
+
+      <div class="hero-art" aria-label="BloomWithin floral illustration">
+        <div>
+          <div class="flower" aria-hidden="true">🌷</div>
+          <p data-en="Every journey deserves care."
+            data-ta="ஒவ்வொரு பயணத்திற்கும் அக்கறை தேவை.">
+            Every journey deserves care.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="health">
+      <div class="section-heading">
+        <h2 data-en="Explore Your Health"
+          data-ta="உங்கள் உடல்நலத்தை அறியுங்கள்">Explore Your Health</h2>
+        <p data-en="Knowledge is a starting point, not a diagnosis."
+          data-ta="அறிவு ஒரு தொடக்கம்; அது மருத்துவ நோயறிதல் அல்ல.">
+          Knowledge is a starting point, not a diagnosis.
+        </p>
+      </div>
+
+      <div class="health-grid">
+        <article class="health-card">
+          <div class="symbol" aria-hidden="true">🌸</div>
+          <h3>PCOS</h3>
+          <p data-en="Learn about hormonal health, common symptoms, and when to seek professional advice."
+            data-ta="ஹார்மோன் ஆரோக்கியம், பொதுவான அறிகுறிகள் மற்றும் எப்போது மருத்துவரை அணுக வேண்டும் என்பதை அறியுங்கள்.">
+            Learn about hormonal health, common symptoms, and when to seek professional advice.
+          </p>
+          <button class="text-button" onclick="showInfo('pcos')"
+            data-en="Learn more" data-ta="மேலும் அறிக">Learn more</button>
+        </article>
+
+        <article class="health-card">
+          <div class="symbol" aria-hidden="true">🌿</div>
+          <h3 data-en="Menopause" data-ta="மாதவிடாய் நிறுத்தம்">Menopause</h3>
+          <p data-en="Understand common changes during the menopause transition and ways to seek support."
+            data-ta="மாதவிடாய் நிறுத்தக் காலத்தில் ஏற்படும் மாற்றங்களையும் உதவி பெறும் வழிகளையும் அறியுங்கள்.">
+            Understand common changes during the menopause transition and ways to seek support.
+          </p>
+          <button class="text-button" onclick="showInfo('menopause')"
+            data-en="Learn more" data-ta="மேலும் அறிக">Learn more</button>
+        </article>
+
+        <article class="health-card">
+          <div class="symbol" aria-hidden="true">🩸</div>
+          <h3 data-en="Anaemia" data-ta="இரத்தச்சோகை">Anaemia</h3>
+          <p data-en="Explore iron, haemoglobin, common symptoms, and the importance of testing."
+            data-ta="இரும்புச்சத்து, ஹீமோகுளோபின், பொதுவான அறிகுறிகள் மற்றும் பரிசோதனையின் முக்கியத்துவத்தை அறியுங்கள்.">
+            Explore iron, haemoglobin, common symptoms, and the importance of testing.
+          </p>
+          <button class="text-button" onclick="showInfo('anaemia')"
+            data-en="Learn more" data-ta="மேலும் அறிக">Learn more</button>
+        </article>
+
+        <article class="health-card">
+          <div class="symbol" aria-hidden="true">🦋</div>
+          <h3 data-en="Thyroid Health" data-ta="தைராய்டு ஆரோக்கியம்">Thyroid Health</h3>
+          <p data-en="Learn how the thyroid helps regulate body functions and why symptoms need assessment."
+            data-ta="தைராய்டு உடல் செயல்பாடுகளை எவ்வாறு கட்டுப்படுத்துகிறது, அறிகுறிகளை ஏன் மதிப்பிட வேண்டும் என்பதை அறியுங்கள்.">
+            Learn how the thyroid helps regulate body functions and why symptoms need assessment.
+          </p>
+          <button class="text-button" onclick="showInfo('thyroid')"
+            data-en="Learn more" data-ta="மேலும் அறிக">Learn more</button>
+        </article>
+
+        <article class="health-card">
+          <div class="symbol" aria-hidden="true">💗</div>
+          <h3>Endometriosis</h3>
+          <p data-en="Understand persistent pelvic pain, menstrual symptoms, and the value of medical assessment."
+            data-ta="தொடர்ச்சியான இடுப்புப் பகுதி வலி, மாதவிடாய் அறிகுறிகள் மற்றும் மருத்துவ மதிப்பீட்டின் முக்கியத்துவத்தை அறியுங்கள்.">
+            Understand persistent pelvic pain, menstrual symptoms, and the value of medical assessment.
+          </p>
+          <button class="text-button" onclick="showInfo('endometriosis')"
+            data-en="Learn more" data-ta="மேலும் அறிக">Learn more</button>
+        </article>
+
+        <article class="health-card">
+          <div class="symbol" aria-hidden="true">🎗️</div>
+          <h3 data-en="Cervical Health" data-ta="கருப்பைவாய் ஆரோக்கியம்">Cervical Health</h3>
+          <p data-en="Learn about HPV vaccination, cervical screening, and discussing screening eligibility with a clinician."
+            data-ta="HPV தடுப்பூசி, கருப்பைவாய் பரிசோதனை மற்றும் தகுதி குறித்து மருத்துவரிடம் ஆலோசிப்பதை அறியுங்கள்.">
+            Learn about HPV vaccination, cervical screening, and discussing screening eligibility with a clinician.
+          </p>
+          <button class="text-button" onclick="showInfo('cervical')"
+            data-en="Learn more" data-ta="மேலும் அறிக">Learn more</button>
+        </article>
+      </div>
+
+      <div id="info-panel" class="notice" hidden
+        style="margin-top:24px;" aria-live="polite">
+      </div>
+    </section>
+
+    <section class="journal" id="journal">
+      <div class="section-heading">
+        <h2 data-en="Your Symptom Journal"
+          data-ta="உங்கள் அறிகுறிப் பதிவு">Your Symptom Journal</h2>
+        <p data-en="Record how you feel to help prepare for a healthcare appointment."
+          data-ta="மருத்துவ ஆலோசனைக்குத் தயாராக உங்கள் உடல்நிலை அனுபவங்களைப் பதிவு செய்யுங்கள்.">
+          Record how you feel to help prepare for a healthcare appointment.
+        </p>
+      </div>
+
+      <div class="journal-box">
+        <form id="journal-form">
+          <label for="symptom" data-en="What are you noticing?"
+            data-ta="நீங்கள் கவனிக்கும் அறிகுறி என்ன?">What are you noticing?</label>
+          <select id="symptom" required>
+            <option value="">Choose a symptom</option>
+            <option>Fatigue</option>
+            <option>Menstrual changes</option>
+            <option>Pelvic discomfort</option>
+            <option>Mood changes</option>
+            <option>Other</option>
+          </select>
+
+          <label for="severity" data-en="How much is it affecting you?"
+            data-ta="இது உங்களை எந்த அளவு பாதிக்கிறது?">How much is it affecting you?</label>
+          <select id="severity" required>
+            <option value="">Choose an option</option>
+            <option>Mild</option>
+            <option>Moderate</option>
+            <option>Severe</option>
+          </select>
+
+          <label for="notes" data-en="Additional notes (optional)"
+            data-ta="கூடுதல் குறிப்புகள் (விருப்பம்)">Additional notes (optional)</label>
+          <textarea id="notes" rows="3"
+            placeholder="Duration, patterns, or questions for your clinician"></textarea>
+
+          <button type="submit" class="primary-button"
+            data-en="Prepare summary" data-ta="சுருக்கத்தைத் தயாரிக்கவும்">
+            Prepare summary
+          </button>
+          <p id="journal-message" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="wellbeing" id="wellbeing">
+      <div class="section-heading">
+        <h2 data-en="Your Emotional Wellbeing Matters"
+          data-ta="உங்கள் மனநலமும் முக்கியம்">Your Emotional Wellbeing Matters</h2>
+      </div>
+      <p data-en="Rest, connection, and asking for help are meaningful parts of wellbeing. You do not need to navigate every health concern alone."
+        data-ta="ஓய்வு, உறவுகள் மற்றும் உதவி கேட்பது நலவாழ்வின் முக்கிய பகுதிகள். எல்லா உடல்நலக் கவலைகளையும் தனியாகச் சமாளிக்க வேண்டியதில்லை.">
+        Rest, connection, and asking for help are meaningful parts of wellbeing.
+        You do not need to navigate every health concern alone.
+      </p>
+      <button class="primary-button" onclick="showWellbeing()"
+        data-en="Try a grounding exercise" data-ta="மன அமைதிப் பயிற்சியை முயற்சிக்கவும்">
+        Try a grounding exercise
+      </button>
+      <div id="grounding-panel" class="notice" hidden
+        style="margin-top:20px;">
+      </div>
+    </section>
+
+    <section>
+      <div class="notice">
+        <strong data-en="Health information notice"
+          data-ta="உடல்நலத் தகவல் குறிப்பு">Health information notice</strong>
+        <p data-en="BloomWithin is an educational prototype, not a diagnostic tool or substitute for professional care. The journal currently creates a summary in this browser session only. Avoid entering identifying or highly sensitive health information."
+          data-ta="BloomWithin ஒரு கல்வி முன்மாதிரி மட்டுமே. இது நோயறிதலுக்கோ மருத்துவ ஆலோசனைக்குப் பதிலாகவோ பயன்படாது. இந்தப் பதிவு தற்போதைய உலாவி அமர்வில் மட்டும் சுருக்கத்தை உருவாக்கும். அடையாளம் காணக்கூடிய அல்லது மிகுந்த தனிப்பட்ட உடல்நலத் தகவல்களை உள்ளிட வேண்டாம்.">
+          BloomWithin is an educational prototype, not a diagnostic tool or substitute for
+          professional care. The journal currently creates a summary in this browser session only.
+          Avoid entering identifying or highly sensitive health information.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand" style="color:white;">BloomWithin</div>
+    <p data-en="Understand your body. Nurture your wellbeing."
+      data-ta="உங்கள் உடலைப் புரிந்துகொள்ளுங்கள். நலனைப் பேணுங்கள்.">
+      Understand your body. Nurture your wellbeing.
+    </p>
+    <p>recHERsion'26 | Women's Health Hackathon</p>
+  </footer>
+
+  <script>
+    let currentLanguage = "en";
+
+    const information = {
+      pcos: {
+        title: "PCOS: An overview",
+        text: "Polycystic ovary syndrome is a hormonal condition that can affect menstrual cycles, skin, and other aspects of health. Symptoms vary. A qualified healthcare professional can assess symptoms and discuss appropriate tests and care."
+      },
+      menopause: {
+        title: "Menopause: An overview",
+        text: "Menopause is a natural life stage associated with changes in menstrual cycles and hormone levels. Experiences vary, and symptoms that affect daily life can be discussed with a healthcare professional."
+      },
+      anaemia: {
+        title: "Anaemia: An overview",
+        text: "Anaemia occurs when the body does not have enough healthy red blood cells or haemoglobin. Tiredness and weakness can have many causes. Blood tests and professional assessment help identify the cause and suitable care."
+      },
+      thyroid: {
+        title: "Thyroid health: An overview",
+        text: "The thyroid gland produces hormones that help regulate several body functions. Thyroid conditions can have varied symptoms, so assessment and appropriate blood tests may be needed."
+      },
+      endometriosis: {
+        title: "Endometriosis: An overview",
+        text: "Endometriosis is a condition in which tissue similar to the lining of the uterus grows outside it. Persistent pelvic pain or difficult periods deserve medical attention. A clinician can help assess symptoms and care options."
+      },
+      cervical: {
+        title: "Cervical health: An overview",
+        text: "Persistent infection with certain types of human papillomavirus (HPV) can cause cervical cancer. HPV vaccination and cervical screening can help prevent or detect disease. Recommendations depend on age and local guidance, so consult a qualified healthcare professional."
+      }
+    };
+
+    function showInfo(topic) {
+      const panel = document.getElementById("info-panel");
+      const item = information[topic];
+      panel.textContent = item.title + "\n\n" + item.text;
+      panel.style.whiteSpace = "pre-line";
+      panel.hidden = false;
+      panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    document.getElementById("journal-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const symptom = document.getElementById("symptom").value;
+      const severity = document.getElementById("severity").value;
+      const notes = document.getElementById("notes").value.trim();
+      const message = document.getElementById("journal-message");
+
+      message.textContent =
+        "Summary for your own review: " + symptom +
+        " | Impact: " + severity +
+        (notes ? " | Notes: " + notes : "") +
+        ". This summary is not a diagnosis. Copy it for your own use before leaving this page.";
+
+      message.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+
+    function showWellbeing() {
+      const panel = document.getElementById("grounding-panel");
+      panel.textContent =
+        "Pause for a moment. Notice your feet on the floor. Gently name five things you can see, four things you can feel, and three things you can hear. Take a comfortable, unforced breath. Stop whenever you need to.";
+      panel.hidden = false;
+    }
+
+    document.getElementById("language-toggle").addEventListener("click", function() {
+      currentLanguage = currentLanguage === "en" ? "ta" : "en";
+      document.documentElement.lang = currentLanguage;
+
+      document.querySelectorAll("[data-en][data-ta]").forEach(function(element) {
+        element.textContent = element.dataset[currentLanguage];
+      });
+
+      document.querySelectorAll("[data-en-html][data-ta-html]").forEach(function(element) {
+        element.innerHTML = element.dataset[currentLanguage + "Html"];
+      });
+
+      document.getElementById("language-toggle").textContent =
+        currentLanguage === "en" ? "தமிழ்" : "English";
+    });
+  </script>
+</body>
+</html>
